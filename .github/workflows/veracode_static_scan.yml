@@ -71,27 +71,3 @@ jobs:
         createsandbox: true # optional
         # name of the sandbox
         sandboxname: Github # optional
-        # wait X minutes for the scan to complete
-        scantimeout: 120 # optional
-        # modules to exclude from module selection
-        # exclude: # optional
-        # modules to include in module selection
-        # include: # optional
-        # business criticality - policy selection
-        # criticality: # optional
-        # filename pattern
-        # pattern: # optional
-        # replacement
-        # replacement: # optional
-        # sandboxid
-        # sandboxid: # optional
-        # All top level modules
-        # scanallnonfataltoplevelmodules: # optional
-        # platform selected modules
-        # selected: # optional
-        # selected modules like from previous scan
-        # selectedpreviously: # optional
-        # teams
-        #teams: # optional
-        # toplevel
-        # toplevel: # optional
