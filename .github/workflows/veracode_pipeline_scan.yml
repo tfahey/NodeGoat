@@ -63,6 +63,6 @@ jobs:
       run: |
         pwd
         ls -al
-        unzip -f pipeline-scan-LATEST.zip
+        unzip pipeline-scan-LATEST.zip -d pipeline
         ls -al
-        java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "release.zip" --fail_on_severity="Very High, High"
+        java -Dpipeline.debug=true -jar pipeline/pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "release.zip" --fail_on_severity="Very High, High"
