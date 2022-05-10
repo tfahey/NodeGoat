@@ -154,3 +154,6 @@ workflows:
       - veracode_pipeline_scan:
           requires:
             - build
+      - veracode_scan:
+          requires:
+            - build
