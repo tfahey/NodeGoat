@@ -61,7 +61,7 @@ jobs:
       - run: 
           name: "Package for upload to Veracode"
           #command: zip -r upload.zip nodegoat
-          command: zip -r upload.zip nodegoat -x *node_modules/*
+          command: zip -r upload.zip nodegoat -x '/test/* /config/* *.circleci/* *.git* /*node_modules/* .editorconfig .dockerignore'
 
       # upload for scanning
       # env vars are used to pass login creds and set the scan name
@@ -91,13 +91,13 @@ jobs:
       - run: 
           name: "Package for upload to Veracode"
           #command: zip -r upload.zip nodegoat
-          command: zip -r upload.zip nodegoat -x *node_modules/*
+          command: zip -r upload.zip nodegoat -x '/test/* /config/* *.circleci/* *.git* /*node_modules/* .editorconfig .dockerignore'
       
       # grab the Veracode agent
       - run:
           name: "Get the Veracode agent"
           command: |
-            wget https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/19.2.5.6/vosp-api-wrappers-java-19.2.5.6.jar -O VeracodeJavaAPI.jar
+            wget https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/22.5.10.0/vosp-api-wrappers-java-22.5.10.0.jar -O VeracodeJavaAPI.jar
             #chmod 755 VeracodeJavaAPI.jar
 
       # upload for scanning
@@ -109,7 +109,9 @@ jobs:
               -vkey $VERACODE_API_KEY 
               -action uploadandscan 
               -appname $VERACODE_APP_NAME 
-              -createprofile false 
+              -createprofile false
+              -createsandbox true
+              -sandboxname CircleCI 
               -version CircleCI-$CIRCLE_BUILD_NUM 
               -filepath upload.zip
 
