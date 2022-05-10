@@ -61,7 +61,7 @@ jobs:
       - run: 
           name: "Package for upload to Veracode"
           #command: zip -r upload.zip nodegoat
-          command: zip -r upload.zip nodegoat -x '/test/* /config/* *.circleci/* *.git* /*node_modules/* .editorconfig .dockerignore'
+          command: zip -r upload.zip nodegoat -x test/* config/* *.circleci/* *.git* *node_modules/* .editorconfig .dockerignore
 
       # upload for scanning
       # env vars are used to pass login creds and set the scan name
@@ -91,7 +91,7 @@ jobs:
       - run: 
           name: "Package for upload to Veracode"
           #command: zip -r upload.zip nodegoat
-          command: zip -r upload.zip nodegoat -x '/test/* /config/* *.circleci/* *.git* /*node_modules/* .editorconfig .dockerignore'
+          command: zip -r upload.zip nodegoat -x test/* config/* *.circleci/* *.git* *node_modules/* .editorconfig .dockerignore
       
       # grab the Veracode agent
       - run:
