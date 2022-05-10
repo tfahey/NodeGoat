@@ -71,6 +71,7 @@ jobs:
               -vid $VERACODE_API_ID 
               -vkey $VERACODE_API_KEY 
               --file upload.zip
+              --fail_on_severity=""
 
   # job to upload to Veracode for scanning
   veracode_scan:
