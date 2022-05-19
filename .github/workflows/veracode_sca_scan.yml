@@ -43,4 +43,4 @@ jobs:
       # export ${{ env.APPLICATION_NAME }}=`echo ${{ github.repository }} | cut -d'/' -f2`
       run: |
            export SRCCLR_API_TOKEN='${{ secrets.SRCCLR_API_TOKEN }}'
-           curl -sSL https://download.sourceclear.com/ci.sh | bash -s – scan --debug --scm-uri 'https://${{ APPLICATION_NAME }}' --scm-ref master --scm-ref-type branch
+           curl -sSL https://download.sourceclear.com/ci.sh | bash -s – scan --debug --scm-uri 'https://NodeGoat' --scm-ref master --scm-ref-type branch
