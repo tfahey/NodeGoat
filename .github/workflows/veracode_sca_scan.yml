@@ -34,10 +34,13 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
 
+    - name: List of the GitHub Actions environment variables on Ubuntu
+      run: env
+
     - name: SCA Agent Scan
       # set APPLICATION_NAME to the repository name without the owner prepended
+      # echo ${{ github.repository }} | cut -d'/' -f2
+      # export ${{ env.APPLICATION_NAME }}=`echo ${{ github.repository }} | cut -d'/' -f2`
       run: |
-           echo ${{ github.repository }} | cut -d'/' -f2
-           export APPLICATION_NAME=`echo ${{ github.repository }} | cut -d'/' -f2`
            export SRCCLR_API_TOKEN='${{ secrets.SRCCLR_API_TOKEN }}'
            curl -sSL https://download.sourceclear.com/ci.sh | bash -s – scan --debug --scm-uri 'https://${{ APPLICATION_NAME }}' --scm-ref master --scm-ref-type branch
