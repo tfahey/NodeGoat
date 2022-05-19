@@ -15,7 +15,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      APPLICATION_NAME
+      APPLICATION_NAME: ""
 
     strategy:
       matrix:
